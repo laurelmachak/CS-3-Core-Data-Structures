@@ -33,7 +33,22 @@ def binary_search(array, item):
 
 def binary_search_iterative(array, item):
     # TODO: implement binary search iteratively here
-    pass
+
+    #keep track of current range between current min and max
+    min_index = 0
+    max_index = len(array) - 1
+    guess = 0
+
+    while array[guess] != item:
+        guess = round(((min_index + max_index)/2))
+        if array[guess] < item:
+            min_index = guess + 1
+        elif array[guess] > item:
+            max_index = guess - 1
+        if (guess == 0) and (array[guess] != item):
+            return None
+    return guess
+
     # once implemented, change binary_search to call binary_search_iterative
     # to verify that your iterative implementation passes all tests
 
