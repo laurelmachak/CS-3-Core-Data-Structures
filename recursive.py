@@ -13,3 +13,8 @@ def recur_factorial(num):
         return num * recur_factorial(num - 1)
 
 print(recur_factorial(3))
+
+
+def iter_factorial(num):
+    counter = num
+    

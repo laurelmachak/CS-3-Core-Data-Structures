@@ -28,6 +28,7 @@ class HashTable(object):
         Best and worst case running time: ??? under what conditions? [TODO]"""
         # TODO: Calculate load factor
         # return ...
+        return self.size/len(self.buckets)
 
     def keys(self):
         """Return a list of all keys in this hash table.
@@ -111,8 +112,13 @@ class HashTable(object):
             # In this case, the given key's value is being updated
             # Remove the old key-value entry from the bucket first
             bucket.delete(entry)
+        else:
+            self.size += 1 #i added this else statement
         # Insert the new key-value entry into the bucket in either case
         bucket.append((key, value))
+
+        if load_factor() > 0.75:
+            pass
         # TODO: Check if the load factor exceeds a threshold such as 0.75
         # ...
         # TODO: If so, automatically resize to reduce the load factor

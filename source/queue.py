@@ -31,6 +31,7 @@ class LinkedQueue(object):
         """Insert the given item at the back of this queue.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Insert given item
+        self.list.append(item)
 
     def front(self):
         """Return the item at the front of this queue without removing it,
@@ -42,6 +43,10 @@ class LinkedQueue(object):
         or raise ValueError if this queue is empty.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return front item, if any
+        front_item = self.list.head()
+        self.list.delete(front_item)
+        return(front_item.data)
+
 
 
 # Implement ArrayQueue below, then change the assignment at the bottom
